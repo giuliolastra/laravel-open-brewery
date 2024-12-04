@@ -38,3 +38,24 @@ A questo punto possiamo eseguire il progetto con il comando:
 ```bash
 composer run dev
 ```
+
+## Docker
+Per la containerizzazione è stato utilizzato Laravel Sail.
+
+Aggiungere alla config (`.env`) quanto segue:
+```bash
+APP_PORT=8080 # Se la porta 80 non è disponibile
+FORWARD_DB_PORT=3307 # Se la porta 3306 non è disponibile
+```
+
+Di seguito i comandi per l'esecuzione:
+
+
+```bash
+npm run build
+./vendor/bin/sail up -d
+./vendor/bin/sail artisan migrate
+```
+
+L'applicativo sarà disponibile all'indirizzo http://127.0.0.1:8080
+

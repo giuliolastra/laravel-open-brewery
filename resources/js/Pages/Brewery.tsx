@@ -3,7 +3,7 @@ import {Head, usePage} from '@inertiajs/react';
 import NavLink from "@/Components/NavLink";
 
 export default function Dashboard() {
-    const results = usePage().props.results;
+    const results: any = usePage().props.results;
     const current: string = usePage().props.current as string;
     return (
         <AuthenticatedLayout
@@ -19,7 +19,7 @@ export default function Dashboard() {
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800">
                         <div className="p-6 text-gray-900 dark:text-gray-100 flex flex-1 justify-between">
-                            {current <= 1 ?
+                            {parseInt(current) <= 1 ?
                                 <div></div> :
                                 <div>
                                     <NavLink
@@ -29,7 +29,7 @@ export default function Dashboard() {
                                     </NavLink>
                                 </div>
                             }
-                            {current >= 1 ?
+                            {parseInt(current) >= 1 ?
                                 <div>
                                     <NavLink
                                         href={route('brewery.paginated', {page: parseInt(current) + 1})}

@@ -2,7 +2,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import {Head, usePage} from '@inertiajs/react';
 
 export default function Dashboard() {
-    const token = usePage().props.token;
+    const token: string = usePage().props.token as string;
     return (
         <AuthenticatedLayout
             header={
